@@ -40,25 +40,31 @@ if(isset($_POST['login_btn'])){
         $_SESSION['status']= "You are logged In!";
         
         echo '<script>window.location.href="form.php"</script>';
+        $_SESSION["username"]= $row["username"];
+        $_SESSION["email"]= $row["email"];
+            
+      $_SESSION["password"]= $row["password"];
+            
         
     }
     
-    if(is_array($row)){
-       $_SESSION["username"]= $row["username"];
-        $_SESSION["email"]= $row["email"];
+    // if(is_array($row)){
+    //    $_SESSION["username"]= $row["username"];
+    //     $_SESSION["email"]= $row["email"];
         
-        $_SESSION["password"]= $row["password"];
+    //     $_SESSION["password"]= $row["password"];
         
         
 
-    }else{
+    //}
+    else{
         
         $_SESSION['status']= "Incorrect Username or email or password";
 
          
-       header("Location: login.php");
+       //header("Location: login.php");
     //    echo '<script>alert("Incorrect Username or email or password")</script>';
-    //    echo '<script>window.location.href="login.php"</script>';
+     echo '<script>window.location.href="login.php"</script>';
       
 
     }
